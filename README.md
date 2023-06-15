@@ -1,1 +1,1 @@
-# Tito
+# Este proyecto desarrollado para la Universidad Anáhuac México Sur mediante el uso de Python y la librería PyGame tiene el propósito de ser un aistente virtual que brinde soporte básico a la comunidad de la universidad.

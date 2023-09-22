@@ -6,6 +6,7 @@ import speech_recognition as sr
 import pyttsx3
 import time
 import webbrowser
+import pyaudio
 
 #Inicializar bibliotecas
 pygame.init()
@@ -49,7 +50,7 @@ def interaccion():
         print("Tu: " + resp)
         return resp
     except sr.UnknownValueError:
-        print("Lo siento, no te entendí. ¿Puedes repetirlo por favor?")
+        print("Lo siento, no te entendÃ­. Â¿Puedes repetirlo por favor?")
         return '   '
     except sr.RequestError as e:
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
@@ -81,7 +82,6 @@ class Button():
 
 def main():
     name = 'Tito'
-    id_al=''
 
     #Crear pagina principal
     width = 800
@@ -187,15 +187,15 @@ def main():
             pygame.display.update()
             
             #Condicionales
-            if (texto.find('español')>-1):
-                talk("Haz seleccionado el idioma español")
+            if (texto.find('espaï¿½ol')>-1):
+                talk("Haz seleccionado el idioma espaï¿½ol")
                 menu_flag = False
                 return "main"
             elif (texto.find('regresar')>-1 or texto.find('anterior')>-1 or texto.find('regresa')>-1):
                 menu_flag = False
                 return "regresar"
             else:
-                talk("No te entendí")
+                talk("No te entendï¿½")
                 
     def menu_int_id():
         menu_flag = True
@@ -242,7 +242,7 @@ def main():
             if button_rojo.draw(screen):
                 repollo = 1
             pygame.display.update()
-            preg = "¿Puedes confirmar si es tu ID?"
+            preg = "ï¿½Puedes confirmar si es tu ID?"
             draw_text(preg,font5,TEXT_COL,40,tito_speech+60)
             if button_tito3.draw(screen):
                 repollo = 1
@@ -260,10 +260,10 @@ def main():
                 repollo = 1
             pygame.display.update()
             #Condicionales
-            if (texto.find('confirmo')>-1 or texto.find('sí')>-1 or texto.find('acepto')>-1 or texto.find('Sí')>-1 or texto.find('correcto')>-1or texto.find('bien')>-1 or texto.find('firmo')>-1 or texto.find('ese')>-1 or texto.find('perfecto')):
+            if (texto.find('confirmo')>-1 or texto.find('sï¿½')>-1 or texto.find('acepto')>-1 or texto.find('Sï¿½')>-1 or texto.find('correcto')>-1or texto.find('bien')>-1 or texto.find('firmo')>-1 or texto.find('ese')>-1 or texto.find('perfecto')):
                 pygame.display.update()
                 menu_flag = False
-                resp_m="Tu ID ha sido reiniciado, intenta ingresar nuevamente con dos dígitos para día, dos para mes y dos para año."
+                resp_m="Tu ID ha sido reiniciado, intenta ingresar nuevamente con dos dï¿½gitos para dï¿½a, dos para mes y dos para aï¿½o."
                 talk(resp_m)
                 return "main"
             if (texto.find('no')>-1 or texto.find('negativo')>-1 or texto.find('No')>-1) or texto.find('mal')>-1or texto.find('inocorrecto')>-1:
@@ -282,7 +282,7 @@ def main():
         iteracion1 = 0
         while(menu_flag):
             #Pregunta
-            preg = "Hola, soy Tito, ¿En qué te puedo ayudar?"
+            preg = "Hola, soy Tito, Â¿En quÃ© te puedo ayudar?"
             draw_text(preg,font5,TEXT_COL,40,tito_speech)
             iteracion1 = iteracion1 + 1
             print(iteracion1)
@@ -344,7 +344,7 @@ def main():
                 menu_flag = False
                 return "wifi"
             elif (texto.find('regresa')>-1 or texto.find('atras')>-1 or texto.find('anterior')>-1 or texto.find('salir')>-1 or texto.find('terminar')>-1 or texto.find('no')>-1 or texto.find('No')>-1 or texto.find('nada')>-1) or texto.find('es todo')>-1:
-                resp_m="Hasta luego, buen día."
+                resp_m="Hasta luego, buen dï¿½a."
                 talk(resp_m)
                 draw_text(resp_m,font5,TEXT_COL,40,tito_speech+60)
                 if button_tito3.draw(screen):
@@ -354,7 +354,7 @@ def main():
                 menu_int_id = False
                 id_al=''
                 return "regresar"
-            elif (texto.find('ID')>-1) or (texto.find('id')>-1) or (texto.find('matrícula')>-1):
+            elif (texto.find('ID')>-1) or (texto.find('id')>-1) or (texto.find('matrï¿½cula')>-1):
                 resp_m="Haz elegido reiniciar ID."
                 talk(resp_m)
                 draw_text(resp_m,font5,TEXT_COL,40,tito_speech+60)
@@ -365,7 +365,7 @@ def main():
                 menu_flag = False
                 return "int_id"
             else:
-                rne="Lo siento, no te entendí"
+                rne="Lo siento, no te entendï¿½"
                 talk(rne)
                 draw_text(rne,font5,TEXT_COL,40,tito_speech+60)
                 if button_tito3.draw(screen):
@@ -380,8 +380,7 @@ def main():
     def menu_wifi():
         menu_flag = True
         while(menu_flag):
-            #Pregunta
-            preg = "La red es Anáhuac, y la contraseña es:"
+            #PreguntaÃ¡huac, y la contraseÃ±a es:"
             draw_text(preg,font5,TEXT_COL,40,tito_speech)
             if button_tito.draw(screen):
                 repollo = 1
@@ -390,7 +389,7 @@ def main():
             screen.blit(qr_wifi, (75,300))
             pygame.display.update()
             talk(preg)
-            talk("A mayúscula 20 22 60, _ a")
+            talk("A mayÃºscula 20 22 60, _ a")
             time.sleep(10)
             return "regresar"
 
@@ -398,11 +397,11 @@ def main():
         menu_flag = True
         while(menu_flag):
             #Pregunta
-            preg = "Escaneando el siguiente QR encontrarás la información necesaria."
+            preg = "Escaneando el siguiente QR encontrarÃ¡s la informaciÃ³n necesaria."
             draw_text(preg,font5,TEXT_COL,40,tito_speech)
             if button_tito.draw(screen):
                 repollo = 1
-            draw_text("También puedes visitar Centro de Cómputo en Torre 3 en campus sur",font5,TEXT_COL,40,tito_speech+30)
+            draw_text("Tambiï¿½n puedes visitar Centro de Cï¿½mputo en Torre 3 en campus sur",font5,TEXT_COL,40,tito_speech+30)
             if button_tito2.draw(screen):
                 repollo = 1
             draw_text("O biblioteca en campus norte",font5,TEXT_COL,40,tito_speech+60)
@@ -412,7 +411,7 @@ def main():
             screen.blit(qr_correo, (posix,posiy))
             pygame.display.update()
             talk(preg)
-            talk("También puedes visitar Centro de Cómputo en Torre 3 en campus sur")
+            talk("Tambiï¿½n puedes visitar Centro de Cï¿½mputo en Torre 3 en campus sur")
             talk("O biblioteca en campus norte")
             time.sleep(10)
             return "regresar"
@@ -421,7 +420,7 @@ def main():
         menu_flag = True
         while(menu_flag):
             #Pregunta
-            preg = "Escaneando el siguiente QR tendrás acceso al link donde encontrarás más información"
+            preg = "Escaneando el siguiente QR tendrï¿½s acceso al link donde encontrarï¿½s mï¿½s informaciï¿½n"
             draw_text(preg,font5,TEXT_COL,40,tito_speech)
             if button_tito.draw(screen):
                 repollo = 1
@@ -435,14 +434,14 @@ def main():
         menu_flag = True
         while(menu_flag):
             #Pregunta
-            preg = "Puedes mandar un correo escaneando el código QR o manualmente a:"
+            preg = "Puedes mandar un correo escaneando el cï¿½digo QR o manualmente a:"
             draw_text(preg,font5,TEXT_COL,40,tito_speech)
             if button_tito.draw(screen):
                 repollo = 1
             draw_text("aprende@anahuac.mx",font5,TEXT_COL,40,tito_speech+30)
             if button_tito2.draw(screen):
                 repollo = 1
-            draw_text("Si necesitas más ayuda también puedes utilizar el chat en línea.",font5,TEXT_COL,40,tito_speech+60)
+            draw_text("Si necesitas mï¿½s ayuda tambiï¿½n puedes utilizar el chat en lï¿½nea.",font5,TEXT_COL,40,tito_speech+60)
             if button_tito3.draw(screen):
                 repollo = 1
             pygame.display.update()
@@ -450,18 +449,18 @@ def main():
             pygame.display.update()
             talk(preg)
             talk("aprende@anahuac.mx")
-            talk("Si necesitas más ayuda también puedes utilizar el chat en línea.")
+            talk("Si necesitas mï¿½s ayuda tambiï¿½n puedes utilizar el chat en lï¿½nea.")
             time.sleep(10)
             return "regresar"
 
-    #Ciclo del Menú
+    #Ciclo del Menï¿½
     run = True
     while run:
         screen.fill((255,255,255))
         if menu_principal == True:
             if menu_state == "idioma":
                 screen.fill((255,255,255)) 
-                draw_text(name + " Asistente Anáhuac", font4, TEXT_COL,45,50)
+                draw_text(name + " Asistente Anï¿½huac", font4, TEXT_COL,45,50)
                 if button_retm.draw(screen):
                     menu_principal = False
                     screen.fill((255,255,255)) 
@@ -476,7 +475,7 @@ def main():
                     screen.fill((255,255,255)) 
             if menu_state == "main":
                 screen.fill((255,255,255))
-                draw_text(name + " Asistente Anáhuac", font4, TEXT_COL,45,50)
+                draw_text(name + " Asistente Anï¿½huac", font4, TEXT_COL,45,50)
                 if button_bs.draw(screen):
                     menu_state = "bs"
                 if button_id.draw(screen):
@@ -496,7 +495,7 @@ def main():
                     menu_principal = False
             if menu_state == "bs":
                 screen.fill((255,255,255)) 
-                draw_text(name + " Asistente Anáhuac", font4, TEXT_COL,45,50)
+                draw_text(name + " Asistente Anï¿½huac", font4, TEXT_COL,45,50)
                 if button_retm.draw(screen):
                     menu_state = "main"
                 pygame.display.update()
@@ -506,7 +505,7 @@ def main():
                     menu_state = "main"
             if menu_state == "int_id":
                 screen.fill((255,255,255)) 
-                draw_text(name + " Asistente Anáhuac", font4, TEXT_COL,45,50)
+                draw_text(name + " Asistente Anï¿½huac", font4, TEXT_COL,45,50)
                 if button_retm.draw(screen):
                     menu_principal = "main"
                 if button_conf.draw(screen):
@@ -523,7 +522,7 @@ def main():
                     menu_principal = False
             if menu_state == "mail":
                 screen.fill((255,255,255)) 
-                draw_text(name + " Asistente Anáhuac", font4, TEXT_COL,45,50)
+                draw_text(name + " Asistente Anï¿½huac", font4, TEXT_COL,45,50)
                 if button_retm.draw(screen):
                     menu_state = "main"
                 pygame.display.update()
@@ -533,7 +532,7 @@ def main():
                     menu_state = "main"
             if menu_state == "wifi":
                 screen.fill((255,255,255)) 
-                draw_text(name + " Asistente Anáhuac", font4, TEXT_COL,45,50)
+                draw_text(name + " Asistente Anï¿½huac", font4, TEXT_COL,45,50)
                 if button_retm.draw(screen):
                     menu_state = "main"
                 pygame.display.update()
@@ -543,7 +542,7 @@ def main():
                     menu_state = "main"
             if menu_state == "sw":
                 screen.fill((255,255,255)) 
-                draw_text(name + " Asistente Anáhuac", font4, TEXT_COL,45,50)
+                draw_text(name + " Asistente Anï¿½huac", font4, TEXT_COL,45,50)
                 if button_retm.draw(screen):
                     menu_state = "main"
                 pygame.display.update()
@@ -552,7 +551,7 @@ def main():
                     menu_principal = False
                     menu_state = "main"
         else:
-            draw_text(name + " Asistente Anáhuac", font4, TEXT_COL,45,50)
+            draw_text(name + " Asistente Anï¿½huac", font4, TEXT_COL,45,50)
             draw_text("Bienvenido", font2, TEXT_COL,270,250)
             draw_text("Presiona cualquier tecla para continuar", font, TEXT_COL,80,400)
             pygame.display.update()

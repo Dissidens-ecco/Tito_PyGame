@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 
 #Importar Biblioteca
 import pygame
@@ -381,6 +381,7 @@ def main():
         menu_flag = True
         while(menu_flag):
             #Preguntaáhuac, y la contraseña es:"
+            preg = "Escaneando el siguiente QR podrás conectarte a la red."
             draw_text(preg,font5,TEXT_COL,40,tito_speech)
             if button_tito.draw(screen):
                 repollo = 1
